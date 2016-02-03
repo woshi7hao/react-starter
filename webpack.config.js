@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
   cache: true,
@@ -26,8 +25,7 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new OpenBrowserPlugin({ url: 'http://localhost:3000' })
+    new webpack.HotModuleReplacementPlugin()
   ],
 
   module: {

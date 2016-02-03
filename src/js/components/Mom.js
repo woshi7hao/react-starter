@@ -1,60 +1,65 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Son from './Son';
 
 class Mom extends Component {
 
-    constructor(props) {
-      super(props);
-      this.state = {
-        status: '开心'
-      };
+  static defaultProps = {
+    name: 'Mom'
+  };
 
-      console.log("我是爸爸，我在构造");
-    }
+  static propTypes = {
+    name: PropTypes.string
+  };
 
-    shouldComponentUpdate(nextProps, nextState) {
-      console.log(nextProps);
-      console.log(nextState);
-      return true;
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      happy: true
+    };
 
-    componentWillReceiveProps(nextProps) {
-      console.log(this.props);
-      console.log(nextProps);
-      console.log('Mom WillReceiveProps');
-    }
+    console.log("----------我是Mom，我在构造-------");
+  }
 
-    componentWillMount() {
-      console.log('Mom WillMount！');
-    }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("should mom update?");
+    return true;
+  }
 
-    componentDidMount() {
-      console.log('Mom DidMount！');
-    }
+  componentWillReceiveProps(nextProps) {
+    console.log('Mom WillReceiveProps');
+  }
 
-    componentWillUpdate() {
-      console.log('Mom WillUpdate');
-    }
+  componentWillMount() {
+    console.log('Mom WillMount！');
+  }
 
-    componentDidUpdate() {
-      console.log('Mom DidMount！');
-    }
+  componentDidMount() {
+    console.log('---------Mom DidMount！-----------');
+  }
 
-    componentWillUnmount() {
-      console.log('Mom WillUnMount！');
-    }
+  componentWillUpdate() {
+    console.log('Mom WillUpdate');
+  }
 
-    render() {
-      console.log('Mom Render');
-      return (
-        <div className="Mom">
-        <div>I am Mom {this.props.name} and I am {this.state.status}</div>
-        <input type="button" value="Change" onClick={() => this.setState({status: '伤心'})} />
-        <div>This is my son:</div>
-        <Son />
-        </div>
-      );
-    }
+  componentDidUpdate() {
+    console.log('-----------Mom DidUpdate！---------');
+  }
+
+  componentWillUnmount() {
+    console.log('Mom WillUnMount！');
+  }
+
+  render() {
+    console.log('Mom render!');
+    return (
+      <div className="Mom">
+      <div>I am Mom {this.props.name} and I am {this.state.happy ? '开心':'伤心'}</div>
+      <div className="button" onClick={(e) => {e.preventDefault(); this.setState({happy: !this.state.happy});}}>Change</div>
+      <div>I have a son:</div>
+      <Son/>
+      </div>
+    );
+  }
 }
 
 module.exports = Mom;
