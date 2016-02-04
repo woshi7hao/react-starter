@@ -74,7 +74,7 @@ var Hello = React.createClass({
 组件初始化时，如果传递的属性和 propTypes 不匹配，则会打印一个 console.warn 日志。如果是可选配置，可以去掉.isRequired。常用的 PropTypes 如下：
 
 
-###getInitialState （ES5）
+###getInitialState(ES5)
 对于组件的每个实例来说，这个方法的调用有且只有一次，用来初始化每个实例的 state，在这个方法里，可以访问组件的 props。每一个React组件都有自己的 state，其与 props 的区别在于 state只存在组件的内部，props 在所有实例中共享。
 
 getInitialState 和 getDefaultPops 的调用是有区别的，getDefaultPops 是对于组件类来说只调用一次，后续该类的应用都不会被调用，而 getInitialState 是对于每个组件实例来讲都会调用，并且只调一次。
