@@ -1,3 +1,4 @@
+#React组件的生命周期管理
 自2013年6月发布以来，[React](https://github.com/facebook/react) 以星火燎原之势风靡前端朋友圈。
 组件化的思想，组合式的开发，干净统一可复用的UI，高性能 [virtual  dom](http://www.infoq.com/cn/articles/react-dom-diff?utm_campaign=rightbar_v2&utm_source=infoq&utm_medium=articles_link&utm_content=link_text)，以及牛逼闪闪的 [react hot loader](https://github.com/gaearon/react-hot-loader)，无一不是为人称道的亮点之处。
 
@@ -8,7 +9,7 @@ React最重要的概念就是[组件化思想](https://facebook.github.io/react/
 一个React组件的生命周期分为三个部分：**实例化(Mounting)**、**存在期(Updating)**和**销毁时(Unmounting)**。
 
 {注：以下讨论的均是客户端渲染，服务端渲染请参考：http://www.alloyteam.com/2015/10/8783/}
-***
+
 
 ##实例化(Mounting)
 当组件在客户端被实例化，第一次被创建时，以下方法依次被调用：
@@ -163,7 +164,7 @@ class Area extends Component{
 }
 ```
 需要注意的是，由于 this.refs.[refName] 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错。
-***
+
 ##存在期(Updating)
 此时组件已经渲染好并且用户可以与它进行交互，比如鼠标点击，手指点按，或者其它的一些事件，导致应用状态的改变，你将会看到下面的方法依次被调用
 ```
@@ -199,7 +200,7 @@ shouldComponentUpdate(nextProps, nextState){
 
 ###componentDidUpdate
 这个方法和 componentDidMount 类似，在组件重新被渲染之后，componentDidUpdate(object prevProps, object prevState) 会被调用。可以在这里访问并修改 DOM。
-***
+
 ##销毁时(Unmounting)
 ###componentWillUnmount
 
@@ -217,7 +218,7 @@ shouldComponentUpdate(nextProps, nextState){
 - render
 - componentDidMount
 ```
-***
+
 ##反模式
 
 1. 在 getDefaultProps、getInitialState、shouldComponentUpdate、componentWillUpdate、render 和 componentWillUnmount 中调用 setState，
@@ -225,7 +226,7 @@ shouldComponentUpdate(nextProps, nextState){
 
 2. 组件封装粒度太小，
 
-***
+
 ##总结
 - React 通过三种状态：**实例化(Mouting)、存在期(Updating)、销毁时(Unmounting)**，管理整个生命周期的执行顺序；
 - 不建议在 getDefaultProps、getInitialState、shouldComponentUpdate、componentWillUpdate、render 和 componentWillUnmount 中调用 setState，特别注意：不能在 shouldComponentUpdate 和 componentWillUpdate中调用 setState，会导致循环调用。
