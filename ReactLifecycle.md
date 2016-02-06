@@ -72,7 +72,7 @@ var Hello = React.createClass({
 });
 ```
 组件初始化时，如果传递的属性和 propTypes 不匹配，则会打印一个 console.warn 日志。如果是可选配置，可以去掉.isRequired。常用的 PropTypes 如下：
-
+![](http://7xqsa4.com1.z0.glb.clouddn.com/blogpropTypes.png)
 
 ###getInitialState(ES5)
 对于组件的每个实例来说，这个方法的调用有且只有一次，用来初始化每个实例的 state，在这个方法里，可以访问组件的 props。每一个React组件都有自己的 state，其与 props 的区别在于 state只存在组件的内部，props 在所有实例中共享。
@@ -232,6 +232,7 @@ shouldComponentUpdate(nextProps, nextState){
 - 不建议在 getDefaultProps、getInitialState、shouldComponentUpdate、componentWillUpdate、render 和 componentWillUnmount 中调用 setState，特别注意：不能在 shouldComponentUpdate 和 componentWillUpdate中调用 setState，会导致循环调用。
 
 以下面的一张图总结组件的生命周期：
+![](http://7xqsa4.com1.z0.glb.clouddn.com/bloglifecycle.jpg)
 
 {注: 关于[ES6](http://es6.ruanyifeng.com/)}
 {注: 关于[react-router](https://github.com/rackt/react-router), [2.0版本](https://github.com/rackt/react-router/blob/master/upgrade-guides/v2.0.0.md)}
