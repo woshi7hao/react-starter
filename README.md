@@ -32,3 +32,6 @@ npm run lint
 ### Resources
 
 * [Integrating JSX live reload into your workflow](http://gaearon.github.io/react-hot-loader/getstarted/)
+
+### About lifestyle
+* [React Lifestyle](https://github.com/woshi7hao/react-starter/blob/master/ReactLifecycle.md)
